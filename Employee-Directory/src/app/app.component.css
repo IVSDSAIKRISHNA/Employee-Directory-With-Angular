@@ -1,0 +1,19 @@
+.page_sidebar {
+  padding-right: 40px;
+  margin-top: 40px;
+}
+.page_body {
+  display: flex;
+}
+
+body {
+  padding: 25px;
+}
+.directory {
+  margin-top: 40px;
+}
+@media only screen and (max-width: 750px) {
+  app-buttongroup {
+    display: none;
+  }
+}

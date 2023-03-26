@@ -1,0 +1,519 @@
+<div class="buttongroup">
+  <div
+    class="btn btn-primary btn-lg mx-1"
+    id="ooo"
+    value="0"
+    (click)="buttonFilter(empty)"
+  >
+    <i class="fas fa-user-alt" style="font-size: 20px"></i>
+  </div>
+  <div class="buttongroup" *ngFor="let alphabet of alphabet">
+    <div
+      class="btn btn-primary btn-lg"
+      id="buttons"
+      value="`${alphabet}`"
+      (click)="buttonFilter(alphabet)"
+    >
+      {{ alphabet }}
+    </div>
+  </div>
+</div>
+
+<div class="utilitybar">
+  <label> Search</label>
+  <input
+    type="search"
+    placeholder="Enter any Keyword here"
+    (keydown.enter)="onEnter()"
+    id="searchbar"
+  />
+  <div class="btn clearbutton" (click)="removeFilter()">Clear</div>
+  <div class="filter">
+    <label>Filter BY</label>
+    <div class="dropdown">
+      <select
+        class="btn btn-light dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <option value="0">None</option>
+        <option class="dropdown-item" value="1">Preffered Name</option>
+        <option class="dropdown-item" value="2">Designation</option>
+        <option class="dropdown-item" value="3">Departments</option>
+      </select>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary addemployee"
+    (click)="Addemployee()"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Add Employee
+  </button>
+</div>
+<div class="note">
+  <b>Note:</b> Please Use the Advance filter options to refine your searches
+</div>
+
+<!-- Modal  for input (add employee)-->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add New Employee</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body p-5">
+        <form
+          class="d-grid justify-content-center"
+          [formGroup]="newEmployeeForm"
+        >
+          <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name </label>
+            <input
+              type="text"
+              class="form-control"
+              id="FirstName"
+              
+              formControlName="firstName"
+            />
+          </div>
+          <div class="mb-3 ">
+            <label for="LastName" class="form-label">last Name </label>
+            <input
+              type="text"
+              class="form-control"
+              id="LastName"
+              formControlName="lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="UserName" class="form-label">Preffered UserName </label>
+            <input formControlName="prefferedName" />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                newEmployeeForm.get('prefferedName')?.invalid &&
+                (newEmployeeForm.get('prefferedName')?.dirty ||
+                  newEmployeeForm.get('prefferedName')?.touched)
+              "
+            >
+              User Name is Not Valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input
+              name="Email"
+              type="email"
+              class="form-control"
+              id="Email"
+              aria-describedby="emailHelp"
+              formControlName="email"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                newEmployeeForm.get('email')?.invalid &&
+                (newEmployeeForm.get('email')?.dirty ||
+                  newEmployeeForm.get('email')?.touched)
+              "
+            >
+              Email is Not Valid
+            </div>
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="JobTitle" class="form-label">Job Title</label>
+            <input
+              formControlName="Jobtitle"
+              class="form-control"
+              id="jobTitle"
+              formControlName="jobTitle"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                newEmployeeForm.get('jobTitle')?.invalid &&
+                (newEmployeeForm.get('jobTitle')?.dirty ||
+                  newEmployeeForm.get('jobTitle')?.touched)
+              "
+            >
+              Job Title is Mandatory
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Office" class="form-label">Office</label>
+            <select class="form-control" id="office" formControlName="office">
+              <option>India</option>
+              <option>Seattle</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="Dept" class="form-label">Department</label>
+            <select class="form-control" id="Dept" formControlName="department">
+              <option>IT Department</option>
+              <option>HR Department</option>
+              <option>MD</option>
+              <option>Sales</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="phonenumber" class="form-label">Phone Number</label>
+            <input formControlName="phoneNumber" id="phonenumber" />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                newEmployeeForm.get('phoneNumber')?.invalid &&
+                (newEmployeeForm.get('phoneNumber')?.dirty ||
+                  newEmployeeForm.get('phoneNumber')?.touched)
+              "
+            >
+              Phone number is not Valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Skypeid" class="form-label">Skype Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Skypeid"
+              formControlName="skypeId"
+            />
+          </div>
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              (click)="newEmployeedetails()"
+              [disabled]="newEmployeeForm.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rendering the Employees Data -->
+<div class="employee_directory">
+  <div class="employeedata">
+    <div class="failedsearch" *ngIf="employeeDetails2.length == 0">
+      No Results Found!!!!
+    </div>
+
+    <div *ngFor="let emp of employeeDetails2">
+      <div
+        class="empcard"
+        data-bs-toggle="modal"
+        data-bs-target="#staticmodal"
+        (click)="employeePopup(emp.id)"
+      >
+        <div class="empphoto">
+          <img src="../../assets/userphoto.png" class="employeephoto" />
+        </div>
+        <div class="employeeinfo">
+          <div class="employeename">{{ emp.name }}</div>
+          <div class="employeetitle">{{ emp.jobtitle }}</div>
+          <div class="employeedpeartment">{{ emp.department }}</div>
+        </div>
+      </div>
+
+      <!-- Modal to display the employee data -->
+     
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="staticmodal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Employee Details
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form class="d-grid justify-content-center">
+                    <div class="mb-3">
+                      <div class="h4">First Name : {{ modalemployee.firstname }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Last Name : {{ modalemployee.lastname }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Preffered Name : {{ modalemployee.name }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Email : {{ modalemployee.email }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Job Title : {{ modalemployee.jobtitle }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Office : {{ modalemployee.office }}</div>
+                    </div>
+                    <div class="mb-4">
+                      <div class="h4">Department : {{ modalemployee.department }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Phone : {{ modalemployee.phonenumber }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <div class="h4">Skypeid : {{ modalemployee.skypeid }}</div>
+                    </div>
+                    <div class="mb-3">
+                      <button
+                        type="button"
+                        class="btn btn-primary mx-5"
+                        (click)="EditEmployee()"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticdrop"
+                        data-bs-dismiss="modal"
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-danger mx-5"
+
+                        (click)="deleteEmployee()"
+                        data-bs-dismiss="modal"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Modal  to get input from the user to edit the employee details-->
+<div
+  class="modal fade"
+  id="staticdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Edit Employee Details
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          class="d-grid justify-content-center"
+          [formGroup]="editDeatilsEmployeeForm"
+        >
+          <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name </label>
+            <input
+              type="text"
+              class="form-control"
+              id="FirstName"
+              formControlName="newFirstName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="LastName" class="form-label">last Name </label>
+            <input
+              type="text"
+              class="form-control"
+              id="LastName"
+              formControlName="newLastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="UserName" class="form-label">Preffered UserName </label>
+            <input
+              type="text"
+              class="form-control"
+              id="UserName"
+              formControlName="newPrefferedName"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                editDeatilsEmployeeForm.get('newPrefferedName')?.invalid &&
+                (editDeatilsEmployeeForm.get('newPrefferedName')?.dirty ||
+                  editDeatilsEmployeeForm.get('newPrefferedName')?.touched)
+              "
+            >
+              UserName is not Valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="Email"
+              aria-describedby="emailHelp"
+              formControlName="newEmail"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                editDeatilsEmployeeForm.get('newEmail')?.invalid &&
+                (editDeatilsEmployeeForm.get('newEmail')?.dirty ||
+                  editDeatilsEmployeeForm.get('newEmail')?.touched)
+              "
+            >
+              Email is Not Valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="JobTitle" class="form-label">Job Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="JobTitle"
+              formControlName="newJobTitle"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                editDeatilsEmployeeForm.get('newJobTitle')?.invalid &&
+                (editDeatilsEmployeeForm.get('newJobTitle')?.dirty ||
+                  editDeatilsEmployeeForm.get('newJobTitle')?.touched)
+              "
+            > Please Enter the Correct Job Title</div>
+          </div>
+          <div class="mb-3">
+            <label for="Office" class="form-label">Office</label>
+            <select
+              class="form-control"
+              id="office"
+              formControlName="newOffice"
+            >
+              <option>India</option>
+              <option>Seattle</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="Dept" class="form-label">Department</label>
+            <select
+              class="form-control"
+              id="Dept"
+              formControlName="newDepartment"
+            >
+              <option>IT Department</option>
+              <option>HR Department</option>
+              <option>MD</option>
+              <option>Sales</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="phonenumber" class="form-label">Phone Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="phonenumber"
+              formControlName="newPhoneNumber"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="
+                editDeatilsEmployeeForm.get('newPhoneNumber')?.invalid &&
+                (editDeatilsEmployeeForm.get('newPhoneNumber')?.dirty ||
+                  editDeatilsEmployeeForm.get('newPhoneNumber')?.touched)
+              "
+            >
+              Phone Number is Not Valid
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Skypeid" class="form-label">Skype Id</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Skypeid"
+              formControlName="newSkypeId"
+            />
+          </div>
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              (click)="editEmployeeDetails2()"
+              [disabled]="editDeatilsEmployeeForm.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

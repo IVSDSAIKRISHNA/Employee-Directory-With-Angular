@@ -1,0 +1,110 @@
+<div class="utilitybar">
+    <label> Search</label>
+    <input type="search" placeholder="Enter any Keyword here" (keydown.enter)="onenter()" id="searchbar">
+    <div class="btn  clearbutton" (click)="removefilter()"> Clear</div>
+    <div class="filter">
+        <label>Filter BY</label>
+        <div class="dropdown">
+            <select class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <option value="0">None</option>
+                <option class="dropdown-item" value="1">Preffered Name</option>
+                <option class="dropdown-item" value="2">Designation </option>
+                <option class="dropdown-item" value="3">Departments </option>
+            </select>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary addemployee" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add Employee
+    </button>
+</div>
+<div class="note"> <b>Note:</b> Please Use the Advance filter options to refine your searches</div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <form  class=" d-grid justify-content-center">
+                <div class="mb-3">
+                    <label for="FirstName" class="form-label">First Name </label>
+                    <input  type="text" class="form-control" id="FirstName">
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="LastName" class="form-label">last Name </label>
+                    <input type="text" class="form-control" id="LastName">
+                </div>
+                <div class="mb-3">
+                    <label for="UserName" class="form-label">Preffered UserName </label>
+                    <input required  ngModel  minlength="6"  #userName='ngModel'  name="userName" type="text" class="form-control" id="UserName">
+                    <div class="alert alert-danger" *ngIf=" userName.touched && !userName.valid"> 
+                        <div *ngIf="userName?.errors?.['required']"> User  Name is required</div>
+                        <div *ngIf="userName?.errors?.['minlength']"> UserName  should be minimum 6 characters </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input  required  ngModel  minlength="6" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  #Email='ngModel'  name="Email" type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                    <div class="alert alert-danger" *ngIf=" Email.touched && !Email.valid"> 
+                        <div *ngIf="Email?.errors?.['required']"> Email is required</div>
+                        <div *ngIf="Email?.errors?.['minlength']"> Email  should be minimum 6 characters </div>
+                        <div *ngIf="Email?.errors?.['pattern']"> Input Must be Email </div>
+                    </div>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="JobTitle" class="form-label">Job Title</label>
+                    <input required  ngModel  minlength="6"  #title='ngModel'  name="title" type="text" class="form-control" id="JobTitle">
+                    <div class="alert alert-danger" *ngIf=" title.touched && !title.valid"> 
+                        <div *ngIf="title?.errors?.['required']"> Job Title is required</div>
+                        <div *ngIf="title?.errors?.['minlength']"> Job Title  should be minimum 6 characters </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="Office" class="form-label">Office</label>
+                    <select  class="form-control" id="office">
+                        <option>India </option>
+                        <option>Seattle</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="Dept" class="form-label">Department</label>
+                    <select  class="form-control" id="Dept">
+                        <option>IT Department </option>
+                        <option>HR Department </option>
+                        <option>MD </option>
+                        <option>Sales </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="phonenumber" class="form-label">Phone Number</label>
+                    <input  required  ngModel  minlength="10" pattern="[- +()0-9]{10}"  #phnnum='ngModel'  name="phnnum" type="text" class="form-control" id="phonenumber">
+                    <div class="alert alert-danger" *ngIf=" phnnum.touched && !phnnum.valid"> 
+                        <div *ngIf="phnnum?.errors?.['required']"> Phone Number is Compulsory </div>
+                        <div *ngIf="phnnum?.errors?.['minlength']"> Phone Number should Have atleast 10 digits </div>
+                        <div *ngIf="phnnum?.errors?.['pattern']"> Phone Number is not Valid  </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="Skypeid" class="form-label">Skype Id</label>
+                    <input type="text" class="form-control" id="Skypeid">
+                </div>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-danger" data-bs-ismiss="modal" (click)="modalsubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

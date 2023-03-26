@@ -1,0 +1,102 @@
+.employee_directory {
+  border: 3px solid gray;
+  height: 500px;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.failedsearch {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 190px 600px;
+}
+.empcard {
+  padding: 10px;
+  display: flex;
+  background-color: #e9e8e8;
+}
+.employeedata {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+.employeephoto {
+  height: 100%;
+  width: 175%;
+}
+.employeeinfo {
+  font-size: 17px;
+  margin-left: 50px;
+  color: gray;
+  font-weight: 600;
+  opacity: 80%;
+}
+.employeename {
+  color: black;
+  font-weight: bold;
+}
+
+.btn {
+  border-radius: 0px;
+}
+.utilitybar {
+  display: flex;
+  margin-top: 50px;
+}
+.filter {
+  display: flex;
+  margin-left: 100px;
+}
+label {
+  font-size: 25px;
+  color: black;
+  opacity: 80%;
+  margin-right: 20px;
+}
+.btn.clearbutton {
+  margin-left: 75px;
+  width: 130px;
+  font-size: 20px;
+  height: 40px;
+  font-weight: bolder;
+  color: white;
+  background-color: rgb(67, 235, 67);
+}
+input {
+  width: 300px;
+  height: 40px;
+}
+.btn.btn-primary.addemployee {
+  margin-left: 445px;
+  font-size: 20px;
+  font-weight: bolder;
+  height: 40px;
+}
+.dropdown {
+  border: 2px solid black;
+  height: 45px;
+}
+select {
+  width: 200px;
+}
+.note {
+  margin-top: 10px;
+  opacity: 80%;
+}
+#dropdownMenuButton {
+  height: 40px;
+}
+
+.buttongroup {
+  display: flex;
+}
+#buttons {
+  border-radius: 0px;
+  margin: 0px 5px;
+  font-size: 22px;
+  width: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+}

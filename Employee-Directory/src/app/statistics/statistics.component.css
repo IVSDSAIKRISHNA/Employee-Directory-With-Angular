@@ -1,0 +1,23 @@
+.chart_container {
+  display: flex;
+
+  width: fit-content;
+}
+
+#MyChart {
+  height: 350px;
+  width: 900px;
+}
+
+#piechart {
+  height: 1000px;
+  width: 750px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+  position: relative;
+  top: 50px;
+  margin-left: 50%;
+}

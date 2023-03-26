@@ -1,0 +1,29 @@
+ul{
+    list-style: none;
+    line-height: 30px;
+}
+.sidebar_viewmore_options{
+    display: none;
+}
+.sidebar{
+    display: grid;
+    row-gap: 10px;
+}
+.title{
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 90%;
+    margin-bottom: 6px;
+}
+.viewmore{
+    color: blue;
+}
+a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+.view_statistics_link{
+    margin-left: 30px;
+    color: blue;
+}

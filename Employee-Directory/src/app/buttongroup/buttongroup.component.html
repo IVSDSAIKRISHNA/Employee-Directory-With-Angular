@@ -1,0 +1,20 @@
+<div class="buttongroup">
+  <div
+    class="btn btn-primary btn-lg mx-1"
+    id="ooo"
+    value="0"
+    (click)="buttonfilter(empty)"
+  >
+    <i class="fas fa-user-alt" style="font-size: 20px"></i>
+  </div>
+  <div class="buttongroup" *ngFor="let alphabet of alphabet">
+    <div
+      class="btn btn-primary btn-lg"
+      id="ooo"
+      value="`${alphabet}`"
+      (click)="buttonfilter(alphabet)"
+    >
+      {{ alphabet }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  /* column-gap: 50px; */
+  justify-content: space-between;
+}
+
+.website_info {
+  display: flex;
+  column-gap: 10px;
+}
+
+.mainlogo {
+  width: 100px;
+  height: 100px;
+}
+
+.header_productname {
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.header_logo {
+  display: flex;
+  column-gap: 5px;
+}
+
+.header_websitename {
+  font-size: 25px;
+  margin-left: 20px;
+  width: 600px;
+}
+
+.header_pagename {
+  color: #0275d8;
+  font-size: 35px;
+}
+
+.header_accountholder {
+  display: flex;
+}
+
+.header_pagename.user {
+  margin-top: 40px;
+}
+
+.header_pagename.inblack {
+  color: black;
+  margin-top: 40px;
+  opacity: 80%;
+  width: 240px;
+}
+
+.userphoto {
+  width: 80px;
+  height: 80px;
+  margin-left: 20px;
+  margin-top: 10px;
+}

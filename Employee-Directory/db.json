@@ -1,0 +1,100 @@
+{
+  "employeedata": [
+    {
+      "id": "1001",
+      "name": "saikrishna117",
+      "jobtitle": "Network engineer ",
+      "department": "IT Department",
+      "office": "India",
+      "phonenumber": "9959603173",
+      "firstname": "Sai",
+      "lastname": "Krishna",
+      "email": "ivsdsaikrishna1994@gmail.com",
+      "skypeid": "skypeif"
+    },
+    {
+      "id": "1002",
+      "name": "Helen Zimmerman",
+      "jobtitle": "Operations Manager",
+      "department": "IT Department",
+      "office": "Seattle",
+      "firstname": "Helen",
+      "lastname": "Zimmerman",
+      "phonenumber": "9182736450",
+      "skypeid": "zier.hela",
+      "email": "Helen@google.com"
+    },
+    {
+      "id": "1003",
+      "name": "Jonathan Smith ",
+      "jobtitle": "Product Manager",
+      "department": "IT Department",
+      "office": "India",
+      "firstname": "Jonathan",
+      "lastname": "Smith",
+      "phonenumber": "9192939495",
+      "skypeid": "jgonsmi",
+      "email": "Smith@google.com"
+    },
+    {
+      "id": "1004",
+      "name": "Tami Hopkins",
+      "jobtitle": "Lead Engineer - Dot Net ",
+      "department": "IT Department",
+      "office": "Seattle",
+      "firstname": "Tami",
+      "lastname": "Hopkins",
+      "phonenumber": "9089786756",
+      "skypeid": "tami.hop",
+      "email": "tamihop@google.com"
+    },
+    {
+      "id": "1005",
+      "name": "Franklin Humark",
+      "jobtitle": "Network Engineer",
+      "department": "IT Department",
+      "office": "India",
+      "firstname": "Franklin",
+      "lastname": "Humark",
+      "phonenumber": "9693498342",
+      "skypeid": "frank.hum",
+      "email": "Frankhumark@google.com"
+    },
+    {
+      "id": "1006",
+      "name": "Anglea Bailey",
+      "jobtitle": "Talent Magnet Jr.",
+      "department": "IT Department",
+      "office": "Seattle",
+      "firstname": "Angela",
+      "lastname": "bailey",
+      "phonenumber": "8764394672",
+      "skypeid": "ang.bai",
+      "email": "anglea@angel.com"
+    },
+    {
+      "id": "1007",
+      "name": "Robert Mitchell",
+      "jobtitle": "Software Engineer",
+      "department": "IT Department",
+      "office": "Seattle",
+      "firstname": "Robert",
+      "lastname": "Mitchell",
+      "phonenumber": "9876543018",
+      "skypeid": "robert.mitchell",
+      "email": "robert@yahoo.com"
+    },
+    {
+      "id": "1008",
+      "name": "Olivia Watson",
+      "jobtitle": "UI Designer",
+      "department": "UX Department",
+      "office": "Seattle",
+      "firstname": "Olivia",
+      "lastname": "Watson",
+      "phonenumber": "7935468290",
+      "skypeid": "olivia.wat",
+      "email": "Watson@google.com"
+    }
+  ]
+}

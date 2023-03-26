@@ -1,0 +1,35 @@
+<div class="sidebar">
+    <div class="sidebar_departments">
+        <ul >
+            <li class="title">Departments</li>
+            <div *ngFor="let dept of nameofdept">
+                <a href="#" (click)="deptfilter(dept.department)">{{dept.department}}</a>
+            </div>
+        </ul>
+    </div>
+    <div class="sidebar_offices">
+        <ul>
+            <li class="title"> Offices</li>
+            <div *ngFor="let office of nameofoffices">
+                <a href="#" (click)="locationfilter(office.location)">{{office.location}}</a>
+            </div>
+
+        </ul>
+    </div>
+    <div class="sidebar_jobtitles">
+        <ul>
+            <li class="title">Job Titles</li>
+            <div *ngFor="let title of nameoftitles">
+                <a href="#" (click)="titlefilter(title.designation)">{{title.designation}}</a>
+            </div>
+            <a href="#" class="viewmore" (click)="ViewMoreoptions()"> View more</a>
+            <div class="sidebar_viewmore_options">
+                <div *ngFor="let title of namesofextratitles">
+                    <a href="#" (click)="titlefilter(title.designation)">{{title.designation}}</a>
+                </div>
+                <a href="#" class="viewmore" (click)="ViewlessOptions()">View Less</a>
+            </div>
+        </ul>
+    </div>
+    <a [routerLink]="'/stats'" (click)="viewstatistics()" class="view_statistics_link"> View Statistics</a>
+</div>
